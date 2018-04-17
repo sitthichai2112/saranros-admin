@@ -51,6 +51,9 @@ import Badges from '../../views/Notifications/Badges/';
 import Modals from '../../views/Notifications/Modals/';
 
 import Home from '../../views/Home'
+import User from '../../views/User'
+import UserList from '../../views/UserList'
+
 
 class Full extends Component {
 
@@ -75,7 +78,7 @@ class Full extends Component {
         <div className="app-body">
           <Sidebar {...this.props}/>
           <main className="main">
-            {/* <Breadcrumb/> */}
+            <Breadcrumb/>
             <Container fluid>
               <Switch>
                 <Route path="/dashboard" name="Dashboard" component={Dashboard}/>
@@ -111,6 +114,9 @@ class Full extends Component {
                 <Route path="/widgets" name="Widgets" component={Widgets}/>
                 <Route path="/charts" name="Charts" component={Charts}/>
                 <Route path="/Home" name="Home" component={Home}/>
+                <Route path="/User" name="User" component={User}/>
+                <Route path="/UserList" name="UserList" component={UserList}/>
+
                 <Redirect from="/" to="/dashboard"/>
               </Switch>
             </Container>

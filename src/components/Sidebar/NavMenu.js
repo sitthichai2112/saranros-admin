@@ -18,6 +18,16 @@ export default {
       //   text: 'NEW'
       // }
     },
+    {
+      name: 'User',
+      url: '/User',
+      icon: 'icon-user',
+    },
+    {
+      name: 'UserList',
+      url: '/UserList',
+      icon: 'icon-list',
+    },
 
     // {
     //   title: true,
