@@ -1,3 +1,4 @@
+// show text in breadcrumb
 const routes = {
   '/': 'Home',
   '/base': 'Base',
@@ -35,6 +36,8 @@ const routes = {
   '/theme': 'Theme',
   '/theme/colors': 'Colors',
   '/theme/typography': 'Typography',
-  '/widgets': 'Widgets'
+  '/widgets': 'Widgets',
+  '/User':'User',
+  '/UserList':'User list'
 };
 export default routes;
