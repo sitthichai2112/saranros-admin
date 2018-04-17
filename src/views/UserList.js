@@ -37,7 +37,10 @@ const UserList  = () =>{
                     <span className="pl-2 pr-2">User List</span>
                   </div>
                   <div claaName="float-left">
-                    <input type="text" className="form-control" id="inlineFormInputName" placeholder="Search" />
+                    <div className="input-group">
+                      <input type="text" className="form-control" placeholder="Search" />
+                        <button className="btn btn-primary" type="button"><i className="fa fa-search"></i></button>
+                    </div>
                   </div>
                 </div>
                 <div className="d-flex align-items-end ">
