@@ -44,7 +44,7 @@ const UserList  = () =>{
                   </div>
                 </div>
                 <div className="d-flex align-items-end ">
-                <button type="button" className="btn btn-primary">
+                <button type="button" className="btn btn-success">
                     <i className="fa fa-plus-circle"></i>
                     <span className="pl-2">Add</span>
                 </button>

@@ -53,6 +53,7 @@ import Modals from '../../views/Notifications/Modals/';
 import Home from '../../views/Home'
 import User from '../../views/User'
 import UserList from '../../views/UserList'
+import Tag from '../../views/Tag/Tag'
 
 
 class Full extends Component {
@@ -116,6 +117,7 @@ class Full extends Component {
                 <Route path="/Home" name="Home" component={Home}/>
                 <Route path="/User" name="User" component={User}/>
                 <Route path="/UserList" name="UserList" component={UserList}/>
+                <Route path="/Tag" name="Tag" component={Tag}/>
 
                 <Redirect from="/" to="/dashboard"/>
               </Switch>
