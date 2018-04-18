@@ -2,3 +2,21 @@
 .card-header .btn{
   margin-top: 0!important;
 }
+.dropdown-menu.show{
+  transform: translate3d(85px, 35px, 0px) !important;
+}
+.tag-search-wrap{
+  display: inherit;
+  padding-left: 2%;
+  width: 79%;
+}
+@media (max-width: 720px){
+  .pL-5{
+      padding-left: 5%;
+  }
+}
+@media (max-width: 540px){
+  .tag-search-wrap{
+    width: 72%;
+  }
+}

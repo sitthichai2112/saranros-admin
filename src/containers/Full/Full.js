@@ -117,6 +117,7 @@ class Full extends Component {
                 <Route path="/User" name="User" component={User}/>
                 <Route path="/UpdateUser/:id" component={User}/>
                 <Route path="/UserList" name="UserList" component={UserList}/>
+                <Route path="/Tag" name="Tag" component={Tag}/>
 
                 <Redirect from="/" to="/dashboard"/>
               </Switch>
