@@ -150,11 +150,10 @@ class Login extends Component {
 
 function bindActions(dispatch) {
   return {
-      login: (datauserlogin) => dispatch(login(datauserlogin))
+    login: (datauserlogin) => dispatch(login(datauserlogin))
   };
 }
 
 const mapStateToProps = state => ({});
 export default connect(mapStateToProps, bindActions)(Login)
-
-// export default (Login)
+ 

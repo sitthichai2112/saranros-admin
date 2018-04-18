@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { HashRouter, BrowserRouter, Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux'
 import store from './store'
-
+import history from './history'
 // Styles
 // Import Flag Icons Set
 import 'flag-icon-css/css/flag-icon.min.css';
@@ -31,6 +31,7 @@ const Test = () => {
 ReactDOM.render((
   <Provider store={store}>
   <BrowserRouter>
+  <Router history={history}>
     <Switch>
       <Route exact path="/login" name="Login Page" component={Login} />
       <Route exact path="/register" name="Register Page" component={Register} />
@@ -38,6 +39,7 @@ ReactDOM.render((
       <Route exact path="/500" name="Page 500" component={Page500} />
       <Route path="/" name="Home" component={Full} />
     </Switch>
+    </Router>
   </BrowserRouter>
   </Provider>
 

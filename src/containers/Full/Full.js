@@ -115,6 +115,7 @@ class Full extends Component {
                 <Route path="/charts" name="Charts" component={Charts}/>
                 <Route path="/Home" name="Home" component={Home}/>
                 <Route path="/User" name="User" component={User}/>
+                <Route path="/UpdateUser/:id" component={User}/>
                 <Route path="/UserList" name="UserList" component={UserList}/>
 
                 <Redirect from="/" to="/dashboard"/>
