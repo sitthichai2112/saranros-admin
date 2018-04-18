@@ -67,7 +67,15 @@ class UserList extends Component {
   }
 
   listuser = () => {
+    
     const { listuser } = this.props
+    if(listuser.length === 0){
+     return(
+      <tr><th colSpan="5" style={{textAlign:'center'}}>Data Not Found.</th></tr>
+
+     )
+    }
+    
     return listuser.map((data, index) =>
       <tr key={index}>
         <td>{data.username}</td>
@@ -87,6 +95,7 @@ class UserList extends Component {
           </div>
         </td>
       </tr>
+    
     )
   }
 
