@@ -17,7 +17,7 @@ class Notification extends React.Component {
                     message: nextProps.message,
                     level: nextProps.status,
                     dismissible: false,
-                    position: 'bl',
+                    position: 'tr',
                     autoDismiss: 3
                 });
             }

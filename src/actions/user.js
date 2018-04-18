@@ -8,7 +8,9 @@ import { opennotification } from '../actions/notification'
 
 export const getlistuser = () => dispatch => {
 
-    axios.get(`${baseUrl}/users?access_token=${token}`)
+    const tokengetuser =localStorage.getItem('token')
+
+    axios.get(`${baseUrl}/users?access_token=${tokengetuser}`)
 
         .then(function (response) {
             if (response && response.status === 200 && response.data) {

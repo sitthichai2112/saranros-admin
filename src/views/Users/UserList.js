@@ -27,9 +27,7 @@ class UserList extends Component {
       this.props.getlistuser()
     })
   }
-
-
-
+ 
   showmodalconfirmdeleteuser = (data) => {
     this.props.showmodalconfirm(`Do you want to delete username "${data.username}" ?`, () => {
       this.deleteuser(data)
