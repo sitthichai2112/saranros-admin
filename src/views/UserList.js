@@ -32,7 +32,7 @@ class UserList extends Component {
 
   showmodalconfirmdeleteuser = (data) => {
     this.props.showmodalconfirm(`Do you want to delete username "${data.username}" ?`, () => {
-      this.deleteuser(data.id)
+      this.deleteuser(data)
     }, 'Delete', 'danger')
   }
 

@@ -1,15 +1,17 @@
-import { LOGINSUCCESS } from "../actions/login";
+import { OPENNOTIFICATION } from "../actions/notification";
 
 const initialState = {
-    token : '',
+    message: '',
+    status: ''
 }
 
 export default function (state = initialState, action) {
     switch (action.type) {
-        case LOGINSUCCESS:
+        case OPENNOTIFICATION:
+            const { message, status } = action
             return {
                 ...state,
-                token: action.token
+                message, status
             };
             break;
         default:

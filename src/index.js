@@ -25,7 +25,7 @@ import Register from './views/Pages/Register/'
 import Page404 from './views/Pages/Page404/'
 import Page500 from './views/Pages/Page500/'
 import ModalConfirm from './components/Modalconfirm/Modalconfirm'
-
+import Notification from './components/Notification/Notification'
 ReactDOM.render((
   <div>
     <Provider store={store}>
@@ -42,6 +42,7 @@ ReactDOM.render((
       </BrowserRouter>
     </Provider>
     <ModalConfirm store={store}/>
+    <Notification store={store}/>
   </div>
 
 ), document.getElementById('root'));
