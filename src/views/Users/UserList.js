@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Row } from 'reactstrap';
-import { getlistuser, deleteUser, searchuser } from '../actions/user'
+import { getlistuser, deleteUser, searchuser } from '../../actions/user'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { showmodalconfirm } from '../actions/modalconfirm'
+import { showmodalconfirm } from '../../actions/modalconfirm'
 
 
 

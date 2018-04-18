@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Row } from 'reactstrap';
 import { connect } from 'react-redux'
-import { addUser, updateuser, getdetailuserupdate } from './../actions/user'
-
+import { addUser, updateuser, getdetailuserupdate } from './../../actions/user'
+import './index.scss'
 class User extends Component {
 
 
@@ -269,28 +269,28 @@ class User extends Component {
                     <div className="form-group">
                       <label className="">Email</label>
                       <input type="text" placeholder="Enter your Last Email" className="form-control" name='email' value={this.state.value.email} onChange={this.onChang} />
-                      <small id="emailHelp" className="form-text text-muted">{this.state.error.email}</small>
+                      <small id="emailHelp" className="form-text error-validate">{this.state.error.email}</small>
                     </div>
                     <div className="form-group">
                       <label className="">Phone number</label>
                       <input type="text" placeholder="Enter your Last Phone number" className="form-control" name='mobile' value={this.state.value.mobile} onChange={this.onChang} />
-                      <small id="emailHelp" className="form-text text-muted">{this.state.error.mobile}</small>
+                      <small id="emailHelp" className="form-text error-validate">{this.state.error.mobile}</small>
                     </div>
                     <div className="form-group">
                       <label className="">Username</label>
                       <input type="text" placeholder="Enter your Last Username" className="form-control" name='username' value={this.state.value.username} onChange={this.onChang} />
-                      <small id="emailHelp" className="form-text text-muted">{this.state.error.username}</small>
+                      <small id="emailHelp" className="form-text error-validate">{this.state.error.username}</small>
                     </div>
                     <div className="form-group">
                       <label className="">Password</label>
                       <input type="password" placeholder="Enter your Last Password" className="form-control" name='password' value={this.state.value.password} onChange={this.onChang} />
-                      <small id="emailHelp" className="form-text text-muted">{this.state.error.password}</small>
+                      <small id="emailHelp" className="form-text error-validate">{this.state.error.password}</small>
                     </div>
                     <div className="form-group">
                       <label className="">Confirm password</label>
                       <input type="password" placeholder="Enter your Last Confirm password" className="form-control" name='confirmpassword' value={this.state.value.confirmpassword} onChange={this.onChang} />
-                      <small id="emailHelp" className="form-text text-muted">{this.state.error.confirmpassword}</small>
-                      <small id="emailHelp" className="form-text text-muted">{this.state.error.errorconfirmpassword}</small>
+                      <small id="emailHelp" className="form-text error-validate">{this.state.error.confirmpassword}</small>
+                      <small id="emailHelp" className="form-text error-validate">{this.state.error.errorconfirmpassword}</small>
                     </div>
                   </div>
                   <div className="card-footer">

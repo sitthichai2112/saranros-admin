@@ -51,8 +51,8 @@ import Badges from '../../views/Notifications/Badges/';
 import Modals from '../../views/Notifications/Modals/';
 
 import Home from '../../views/Home'
-import User from '../../views/User'
-import UserList from '../../views/UserList'
+import User from '../../views/Users/User'
+import UserList from '../../views/Users/UserList'
 
 
 class Full extends Component {
