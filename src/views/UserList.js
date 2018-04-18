@@ -13,7 +13,7 @@ class UserList extends Component {
     super(props)
     this.state = {
       search: {
-        firstname: ''
+        username: ''
       }
     }
   }
@@ -102,12 +102,12 @@ class UserList extends Component {
   }
 
   onclicksearchuser = () => {
-    this.props.searchuser(this.state.search.firstname)
+    this.props.searchuser(this.state.search.username)
   }
 
   _handleKeyPress = (e) => {
     if (e.key === 'Enter') {
-      this.props.searchuser(this.state.search.firstname)
+      this.props.searchuser(this.state.search.username)
     }
   }
 
@@ -127,8 +127,8 @@ class UserList extends Component {
                     </div>
                     <div className="float-left">
                       <div className="input-group">
-                        <input type="text" className="form-control" placeholder="Search" />
-                        <button className="btn btn-primary" type="button"><i className="fa fa-search"></i></button>
+                        <input type="text" className="form-control" placeholder="Search" name='username' value={this.state.search.username} onChange={this.onchangesearchuser} onKeyPress={this._handleKeyPress} />
+                        <button className="btn btn-primary" type="button" onClick={() => this.onclicksearchuser()}><i className="fa fa-search"></i></button>
                       </div>
                     </div>
                   </div>
