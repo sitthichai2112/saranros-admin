@@ -6,6 +6,8 @@ import {
   DropdownToggle,
   Dropdown
 } from 'reactstrap';
+import store from '../../store'
+import { push } from 'react-router-redux'
 
 class HeaderDropdown extends Component {
 
@@ -22,6 +24,11 @@ class HeaderDropdown extends Component {
     this.setState({
       dropdownOpen: !this.state.dropdownOpen
     });
+  }
+
+  logout = () => {
+    localStorage.removeItem('token');
+    store.dispatch(push('/login'))
   }
 
   dropAccnt() {
@@ -43,7 +50,7 @@ class HeaderDropdown extends Component {
           <DropdownItem><i className="fa fa-file"></i> Projects<Badge color="primary">42</Badge></DropdownItem>
           <DropdownItem divider/>
           <DropdownItem><i className="fa fa-shield"></i> Lock Account</DropdownItem>
-          <DropdownItem><i className="fa fa-lock"></i> Logout</DropdownItem>
+          <DropdownItem onClick={() => this.logout()}><i className="fa fa-lock"></i> Logout</DropdownItem>
         </DropdownMenu>
       </Dropdown>
     );
