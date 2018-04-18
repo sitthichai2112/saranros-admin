@@ -26,14 +26,12 @@ import {
 class Tag  extends React.Component {
   constructor(props) {
     super(props);
-
-    this.toggle = this.toggle.bind(this);
     this.state = {
       dropdownOpen: false
     };
   }
 
-  toggle() {
+  toggle = () => {
     this.setState({
       dropdownOpen: !this.state.dropdownOpen
     });
@@ -71,7 +69,7 @@ render() {
               </div>
           </div>
       </div>
-      <div className="col-xs-12 col-sm-12 col-md-6 offset-md-3 col-lg-6 offset-lg-3 d-flex justify-content-center pb-4">
+      <div className="col-xs-12 col-sm-12 col-md-6 offset-md-3 col-lg-6 offset-lg-3 d-flex justify-content-end pb-4">
           <button type="button" className="btn btn-success">
               <i className="fa fa-search"></i>
               <span className="pl-2">Search</span>
@@ -82,7 +80,7 @@ render() {
             <div className="card">
             <div className="card-header d-flex justify-content-between">
               <div className="d-sm-inline-flex d-md-inline-flex d-lg-inline-flex align-items-center mr-2">
-                <div claaName="float-left">
+                <div className="float-left">
                   <i className="fa fa-tag"></i>
                   <span className="pl-2 pr-2">Tag</span>
                 </div>
@@ -147,7 +145,7 @@ render() {
          </div>
        </div>
 
-        <div className="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div className="modal fade" id="exampleModal"  role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div className="modal-dialog" role="document">
             <div className="modal-content">
               <div className="modal-header bg-primary">
@@ -176,7 +174,7 @@ render() {
           </div>
         </div>
 
-        <div className="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="delete" aria-hidden="true">
+        <div className="modal fade" id="delete"  role="dialog" aria-labelledby="delete" aria-hidden="true">
           <div className="modal-dialog" role="document">
             <div className="modal-content">
               <div className="modal-header bg-danger">

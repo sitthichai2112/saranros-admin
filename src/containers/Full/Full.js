@@ -53,6 +53,7 @@ import Modals from '../../views/Notifications/Modals/';
 import Home from '../../views/Home'
 import User from '../../views/Users/User'
 import UserList from '../../views/Users/UserList'
+import Tag from '../../views/Tag/Tag'
 
 
 class Full extends Component {
