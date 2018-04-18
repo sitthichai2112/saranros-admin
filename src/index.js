@@ -24,23 +24,24 @@ import Login from './views/Pages/Login/'
 import Register from './views/Pages/Register/'
 import Page404 from './views/Pages/Page404/'
 import Page500 from './views/Pages/Page500/'
-const Test = () => {
-  return <div>test</div>
-}
+import ModalConfirm from './components/Modalconfirm/Modalconfirm'
 
 ReactDOM.render((
-  <Provider store={store}>
-  <BrowserRouter>
-  <Router history={history}>
-    <Switch>
-      <Route exact path="/login" name="Login Page" component={Login} />
-      <Route exact path="/register" name="Register Page" component={Register} />
-      <Route exact path="/404" name="Page 404" component={Page404} />
-      <Route exact path="/500" name="Page 500" component={Page500} />
-      <Route path="/" name="Home" component={Full} />
-    </Switch>
-    </Router>
-  </BrowserRouter>
-  </Provider>
+  <div>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Router history={history}>
+          <Switch>
+            <Route exact path="/login" name="Login Page" component={Login} />
+            <Route exact path="/register" name="Register Page" component={Register} />
+            <Route exact path="/404" name="Page 404" component={Page404} />
+            <Route exact path="/500" name="Page 500" component={Page500} />
+            <Route path="/" name="Home" component={Full} />
+          </Switch>
+        </Router>
+      </BrowserRouter>
+    </Provider>
+    <ModalConfirm store={store}/>
+  </div>
 
 ), document.getElementById('root'));

@@ -3,7 +3,7 @@ import { Row } from 'reactstrap';
 import { getlistuser, deleteUser, searchuser } from '../actions/user'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-
+import { showmodalconfirm } from '../actions/modalconfirm'
 
 
 
@@ -36,13 +36,6 @@ class UserList extends Component {
     }, 'Delete', 'danger')
   }
 
-  getdetailuserupdate = (detailuser) => {
-
-
-    console.log('update')
-
-    // browserHistory.push(`/user/${detailuser.id}`);
-  }
 
   changFormatMobile = (mobile) => {
 
@@ -88,7 +81,7 @@ class UserList extends Component {
                 <i className="fa fa-edit"></i>
               </button>
             </Link>
-            <button type="button" className="btn btn-danger text-white" >
+            <button type="button" className="btn btn-danger text-white" onClick={() => this.showmodalconfirmdeleteuser(data)}>
               <i className="fa fa-trash"></i>
             </button>
           </div>
