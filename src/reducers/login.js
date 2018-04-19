@@ -1,4 +1,4 @@
-import { LOGINSUCCESS } from "../actions/login";
+import { LOGIN_SUCCESS  } from "../actions/login";
 
 const initialState = {
     token : '',
@@ -6,10 +6,10 @@ const initialState = {
 
 export default function (state = initialState, action) {
     switch (action.type) {
-        case LOGINSUCCESS:
+        case LOGIN_SUCCESS:
             return {
                 ...state,
-                token: action.token
+                userData: action.userData
             };
             break;
         default:

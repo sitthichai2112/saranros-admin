@@ -54,7 +54,7 @@ import Home from '../../views/Home'
 import User from '../../views/Users/User'
 import UserList from '../../views/Users/UserList'
 import Tag from '../../views/Tag/Tag'
-
+import history from '../../history'
 
 class Full extends Component {
 
@@ -64,11 +64,19 @@ class Full extends Component {
 
 
   componentWillReceiveProps(nextProps){
-    console.log("will props" ,  nextProps);
+    // console.log("will props" ,  nextProps);
   }
 
   componentDidMount(){
-    console.log("didmount");
+  
+    //  check if not token go to login page
+    let token =   localStorage.getItem('token');
+    if(!token){
+      history.push("/login");
+    }
+
+
+
   }
 
 
