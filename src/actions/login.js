@@ -1,5 +1,7 @@
+
 export const LOGINSUCCESS = 'loginsuccess'
 export const LOGINFAILED = 'loginfailed'
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS '
 import axios from 'axios'
 import { push } from 'react-router-redux'
 import { baseUrl } from '../config/api'
@@ -12,8 +14,8 @@ export const login = (datauser) => dispatch => {
             if (response && response.status === 200 && response.data) {
                 console.log(response)
                 dispatch({
-                    type: LOGINSUCCESS,
-                    token: response.data.token.id
+                    type: LOGIN_SUCCESS,
+                    userData: response.data
                 })
                 localStorage.setItem('token', response.data.token.id);
                 dispatch({
