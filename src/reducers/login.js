@@ -1,7 +1,8 @@
-import { LOGINSUCCESS } from "../actions/login";
+import { LOGINSUCCESS, LOGINFAILED } from "../actions/login";
 
 const initialState = {
-    token : '',
+    token: '',
+    status_login_failed: false
 }
 
 export default function (state = initialState, action) {
@@ -10,6 +11,12 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 token: action.token
+            };
+            break;
+        case LOGINFAILED:
+            return {
+                ...state,
+                status_login_failed: action.status
             };
             break;
         default:

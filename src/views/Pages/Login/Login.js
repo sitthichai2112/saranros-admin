@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Container, Row, Col, CardGroup, Card, CardBody, Button, Input, InputGroup, InputGroupAddon, InputGroupText, Form, FormText, FormGroup } from 'reactstrap';
 import { connect } from 'react-redux';
 import { login } from '../../../actions/login'
+import './index.scss'
 class Login extends Component {
 
 
@@ -15,14 +16,11 @@ class Login extends Component {
       },
       error: {
         loginUsername: null,
-        loginPassword: null,
-        loginFailed: false
-      }
-
+        loginPassword: null
+      },
+      messageloginfailed :''
     }
   }
-
-
   checkEmail = (email) => {
 
     let statusemail = false
@@ -84,6 +82,11 @@ class Login extends Component {
 
 
   render() {
+
+
+
+    const { statusloginfailed } = this.props
+
     return (
       <div className="app flex-row align-items-center">
         <Container>
@@ -98,7 +101,7 @@ class Login extends Component {
                     <CardBody>
                       <h1>Login</h1>
                       <p className="text-muted">Sign In to your account</p>
-                      <InputGroup className="mb-3">
+                      <InputGroup className="input-login">
                         <InputGroupAddon addonType="prepend">
                           <InputGroupText>
                             <i className="icon-user"></i>
@@ -106,8 +109,8 @@ class Login extends Component {
                         </InputGroupAddon>
                         <Input type="text" placeholder="Username" name="loginUsername" value={this.state.value.loginUsername} onChange={this.onChang} />
                       </InputGroup>
-                      <FormText color="red">{this.state.error.loginUsername}</FormText>
-                      <InputGroup className="mb-4">
+                      <FormText className="text-validate" color="red">{this.state.error.loginUsername}</FormText>
+                      <InputGroup className="input-login">
                         <InputGroupAddon addonType="prepend">
                           <InputGroupText>
                             <i className="icon-lock"></i>
@@ -115,9 +118,8 @@ class Login extends Component {
                         </InputGroupAddon>
                         <Input type="password" placeholder="Password" name="loginPassword" value={this.state.value.loginPassword} onChange={this.onChang} />
                       </InputGroup>
-                      <FormText color="red">{this.state.error.loginPassword}</FormText>
-
-
+                      <FormText className="text-validate" color="red">{this.state.error.loginPassword}</FormText>
+                      <h5 className="text-validate" color="red">{this.state.error.loginPassword || this.state.error.loginUsername ? '' : (statusloginfailed ? 'Login Faile.' : '')}</h5>
                       <Row>
                         <Col xs="6">
                           <Button color="primary" className="px-4">Login</Button>
@@ -154,6 +156,7 @@ function bindActions(dispatch) {
   };
 }
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+  statusloginfailed: state.login.status_login_failed
+});
 export default connect(mapStateToProps, bindActions)(Login)
- 
