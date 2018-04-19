@@ -13,7 +13,9 @@ class UserList extends Component {
     super(props)
     this.state = {
       search: {
-        username: ''
+        username: '',
+        mobile: '',
+        email: ''
       }
     }
   }
@@ -27,7 +29,7 @@ class UserList extends Component {
       this.props.getlistuser()
     })
   }
- 
+
   showmodalconfirmdeleteuser = (data) => {
     this.props.showmodalconfirm(`Do you want to delete username "${data.username}" ?`, () => {
       this.deleteuser(data)
@@ -65,17 +67,18 @@ class UserList extends Component {
   }
 
   listuser = () => {
-    
-    const { listuser } = this.props
-    if(listuser.length === 0){
-     return(
-      <tr><th colSpan="5" style={{textAlign:'center'}}>Data Not Found.</th></tr>
 
-     )
+    const { listuser } = this.props
+    if (listuser.length === 0) {
+      return (
+        <tr><th colSpan="5" style={{ textAlign: 'center' }}>Data Not Found.</th></tr>
+
+      )
     }
-    
+
     return listuser.map((data, index) =>
       <tr key={index}>
+        <td>{index + 1}</td>
         <td>{data.username}</td>
         <td>{data.email}</td>
         <td>{this.changFormatMobile(data.mobile)}</td>
@@ -93,7 +96,7 @@ class UserList extends Component {
           </div>
         </td>
       </tr>
-    
+
     )
   }
 
@@ -108,13 +111,14 @@ class UserList extends Component {
     })
   }
 
+
   onclicksearchuser = () => {
-    this.props.searchuser(this.state.search.username)
+    this.props.searchuser(this.state.search)
   }
 
   _handleKeyPress = (e) => {
     if (e.key === 'Enter') {
-      this.props.searchuser(this.state.search.username)
+      this.props.searchuser(this.state.search)
     }
   }
 
@@ -132,12 +136,12 @@ class UserList extends Component {
                       <i className="fa fa-list-ul"></i>
                       <span className="pl-2 pr-2">User List</span>
                     </div>
-                    <div className="float-left">
+                    {/* <div className="float-left">
                       <div className="input-group">
                         <input type="text" className="form-control" placeholder="Search" name='username' value={this.state.search.username} onChange={this.onchangesearchuser} onKeyPress={this._handleKeyPress} />
                         <button className="btn btn-primary" type="button" onClick={() => this.onclicksearchuser()}><i className="fa fa-search"></i></button>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                   <div className="d-flex align-items-end ">
                     <Link to='User'>
@@ -148,11 +152,51 @@ class UserList extends Component {
                     </Link>
                   </div>
                 </div>
+
+
+                <div className="card-body">
+                  <div className="row">
+                    <div className="col-xs-6 col-sm-6 col-md-6">
+                      <div className="form-group row">
+                        <label htmlFor="example-text-input" className="col-3 col-form-label">Username</label>
+                        <div className="col-9">
+                          <input className="form-control" type="text" name="username" value={this.state.search.username} onChange={this.onchangesearchuser} onKeyPress={this._handleKeyPress} />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col-xs-6 col-sm-6 col-md-6">
+                      <div className="form-group row">
+                        <label htmlFor="example-text-input" className="col-3 col-form-label">Mobile</label>
+                        <div className="col-9">
+                          <input className="form-control" type="text" name="mobile" value={this.state.search.mobile} onChange={this.onchangesearchuser} onKeyPress={this._handleKeyPress} />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="row">
+                    <div className="col-xs-6 col-sm-6 col-md-6">
+                      <div className="form-group row">
+                        <label htmlFor="example-text-input" className="col-3 col-form-label">Email</label>
+                        <div className="col-9">
+                          <input className="form-control" type="text" name="email" value={this.state.search.email} onChange={this.onchangesearchuser} onKeyPress={this._handleKeyPress} />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <button type="button" className="btn btn-success btn-lg pull-right" onClick={() => this.onclicksearchuser()}>Search</button>
+                </div>
+
+
+
                 <div className="card-body">
                   <div className="table-responsive">
                     <table className="table table-striped">
                       <thead>
                         <tr>
+                          <th>No</th>
                           <th>Username</th>
                           <th>E-mail</th>
                           <th>Phone</th>

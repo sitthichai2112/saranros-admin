@@ -103,8 +103,9 @@ export const getdetailuserupdate = (id) => dispatch => {
 }
 
 
-export const searchuser = (username) => dispatch => {
-    axios.get(`${baseUrl}/users?filter={"where":{"username":{"like":"${username}","options":"i"}}}&access_token=${token}`)
+export const searchuser = (search) => dispatch => {
+
+    axios.get(`${baseUrl}/users?filter={"where":{"username":{"like":"${search.username}"},"email":{"like":"${search.email}"},"mobile":{"like":"${search.mobile}"}}}&access_token=${token}`)
 
         .then(function (response) {
             if (response && response.status === 200 && response.data) {
