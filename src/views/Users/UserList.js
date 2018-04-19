@@ -143,14 +143,14 @@ class UserList extends Component {
                       </div>
                     </div> */}
                   </div>
-                  <div className="d-flex align-items-end ">
+                  {/* <div className="d-flex align-items-end ">
                     <Link to='User'>
                       <button type="button" className="btn btn-primary">
                         <i className="fa fa-plus-circle"></i>
                         <span className="pl-2">Add</span>
                       </button>
                     </Link>
-                  </div>
+                  </div> */}
                 </div>
 
 
@@ -159,7 +159,7 @@ class UserList extends Component {
                     <div className="col-xs-6 col-sm-6 col-md-6">
                       <div className="form-group row">
                         <label htmlFor="example-text-input" className="col-3 col-form-label">Username</label>
-                        <div className="col-9">
+                        <div className="col-7">
                           <input className="form-control" type="text" name="username" value={this.state.search.username} onChange={this.onchangesearchuser} onKeyPress={this._handleKeyPress} />
                         </div>
                       </div>
@@ -167,7 +167,7 @@ class UserList extends Component {
                     <div className="col-xs-6 col-sm-6 col-md-6">
                       <div className="form-group row">
                         <label htmlFor="example-text-input" className="col-3 col-form-label">Mobile</label>
-                        <div className="col-9">
+                        <div className="col-7">
                           <input className="form-control" type="text" name="mobile" value={this.state.search.mobile} onChange={this.onchangesearchuser} onKeyPress={this._handleKeyPress} />
                         </div>
                       </div>
@@ -178,20 +178,28 @@ class UserList extends Component {
                     <div className="col-xs-6 col-sm-6 col-md-6">
                       <div className="form-group row">
                         <label htmlFor="example-text-input" className="col-3 col-form-label">Email</label>
-                        <div className="col-9">
+                        <div className="col-7">
                           <input className="form-control" type="text" name="email" value={this.state.search.email} onChange={this.onchangesearchuser} onKeyPress={this._handleKeyPress} />
                         </div>
                       </div>
                     </div>
                   </div>
-
-
                   <button type="button" className="btn btn-success btn-lg pull-right" onClick={() => this.onclicksearchuser()}>Search</button>
                 </div>
 
 
 
                 <div className="card-body">
+
+                  <div style={{marginBottom:"1em"}}>
+                    <Link to='User'>
+                      <button type="button" className="btn btn-primary">
+                        <i className="fa fa-plus-circle"></i>
+                        <span className="pl-2">Add</span>
+                      </button>
+                    </Link>
+                  </div>
+
                   <div className="table-responsive">
                     <table className="table table-striped">
                       <thead>
