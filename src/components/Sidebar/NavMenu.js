@@ -28,6 +28,11 @@ export default {
       url: '/UserList',
       icon: 'icon-list',
     },
+    {
+      name: 'Tag',
+      url: '/Tag',
+      icon: 'icon-tag',
+    },
 
     // {
     //   title: true,
