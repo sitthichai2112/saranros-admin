@@ -290,7 +290,7 @@ class User extends Component {
                       <label className="">Confirm password</label>
                       <input type="password" placeholder="Enter your Last Confirm password" className="form-control" name='confirmpassword' value={this.state.value.confirmpassword} onChange={this.onChang} />
                       <small id="emailHelp" className="form-text error-validate">{this.state.error.confirmpassword}</small>
-                      <small id="emailHelp" className="form-text error-validate">{this.state.error.errorconfirmpassword}</small>
+                      <small id="emailHelp" className="form-text" style={this.state.error.errorconfirmpassword === 'Password match' ? {color:'green'}:{color:'red'}}>{this.state.error.errorconfirmpassword}</small>
                     </div>
                   </div>
                   <div className="card-footer">
