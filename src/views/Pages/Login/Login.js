@@ -3,9 +3,8 @@ import { Container, Row, Col, CardGroup, Card, CardBody, Button, Input, InputGro
 import { connect } from 'react-redux';
 import { login } from '../../../actions/login'
 import './index.scss'
+
 class Login extends Component {
-
-
 
   constructor(props) {
     super(props)

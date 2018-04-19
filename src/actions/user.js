@@ -8,7 +8,7 @@ import { opennotification } from '../actions/notification'
 
 export const getlistuser = () => dispatch => {
 
-    const tokengetuser =localStorage.getItem('token')
+    const tokengetuser = localStorage.getItem('token')
 
     axios.get(`${baseUrl}/users?access_token=${tokengetuser}`)
 
@@ -25,16 +25,51 @@ export const getlistuser = () => dispatch => {
 }
 
 export const addUser = (datauser) => dispatch => {
-    axios.post(`${baseUrl}/users`, datauser)
+
+    let profile = {
+        name: datauser.name,
+        nickName: datauser.nickName,
+        birthDay: datauser.birthDay,
+        location: {
+            lat: 0,
+            lng: 0
+        }
+    }
+    let user = {
+        username: datauser.username,
+        mobile: datauser.mobile,
+        email: datauser.email,
+        password: datauser.password,
+        profileId: ''
+    }
+
+
+
+    axios.post(`${baseUrl}/Profiles?access_token=${token}`, profile)
         .then(function (response) {
+
             if (response && response.status === 200 && response.data) {
-                dispatch(push('/UserList'))
-                dispatch(opennotification(`Create User Success.`, `success`))
+                user = {
+                    ...user,
+                    profileId: response.data.id
+                }
+                axios.post(`${baseUrl}/users`, user)
+                    .then(function (response) {
+                        if (response && response.status === 200 && response.data) {
+                            dispatch(push('/UserList'))
+                            dispatch(opennotification(`Create User Success.`, `success`))
+                        }
+                    })
+                    .catch(function (error) {
+                        dispatch(opennotification(`Error Create User Success.`, `error`))
+                    });
             }
         })
         .catch(function (error) {
-            dispatch(opennotification(`Error Create User Success.`, `error`))
+            dispatch(opennotification(`Error Create Profile User Success.`, `error`))
         });
+
+
 }
 
 
