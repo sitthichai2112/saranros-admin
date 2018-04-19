@@ -71,7 +71,7 @@ class UserList extends Component {
     const { listuser } = this.props
     if (listuser.length === 0) {
       return (
-        <tr><th colSpan="5" style={{ textAlign: 'center' }}>Data Not Found.</th></tr>
+        <tr><th colSpan="6" style={{ textAlign: 'center' }}>Data Not Found.</th></tr>
 
       )
     }
