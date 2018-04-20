@@ -1,9 +1,9 @@
-export const OPENNOTIFICATION = 'opennotification'
+export const OPEN_NOTIFICATION = 'OPEN_NOTIFICATION'
 import NotificationSystem from 'react-notification-system';
 
-export const opennotification = (message = '' , status = '') => {
+export const openNotification = (message = '' , status = '') => {
     return {
-        type: OPENNOTIFICATION,
+        type: OPEN_NOTIFICATION,
         message,status
     };
 

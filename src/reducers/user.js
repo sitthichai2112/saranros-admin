@@ -1,4 +1,4 @@
-import { GETLISTUSER, GETDETAILUSERUPDATE } from "../actions/user";
+import { GET_LIST_USER, GETDETAILUSERUPDATE } from "../actions/user";
 
 const initialState = {
     listuser: [],
@@ -7,7 +7,7 @@ const initialState = {
 
 export default function (state = initialState, action) {
     switch (action.type) {
-        case GETLISTUSER:
+        case GET_LIST_USER:
             return {
                 ...state,
                 listuser: action.listuser

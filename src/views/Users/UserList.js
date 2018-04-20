@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Row } from 'reactstrap';
-import { getlistuser, deleteUser, searchuser } from '../../actions/user'
+import { getListUser, deleteUser, searchuser } from '../../actions/user'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { showmodalconfirm } from '../../actions/modalconfirm'
+import { showModalConfirm } from '../../actions/modalconfirm'
 
 
 
@@ -20,19 +20,19 @@ class UserList extends Component {
     }
   }
   componentDidMount() {
-    this.props.getlistuser()
+    this.props.getListUser()
   }
 
 
-  deleteuser = (id) => {
-    this.props.deleteUser(id, () => {
-      this.props.getlistuser()
+  deleteUser = (data) => {
+    this.props.deleteUser(data, () => {
+      this.props.getListUser()
     })
   }
 
-  showmodalconfirmdeleteuser = (data) => {
-    this.props.showmodalconfirm(`Do you want to delete username "${data.username}" ?`, () => {
-      this.deleteuser(data)
+  showModalConfirmDeleteUser = (data) => {
+    this.props.showModalConfirm(`Do you want to delete username "${data.username}" ?`, () => {
+      this.deleteUser(data)
     }, 'Delete', 'danger')
   }
 
@@ -90,7 +90,7 @@ class UserList extends Component {
                 <i className="fa fa-edit"></i>
               </button>
             </Link>
-            <button type="button" className="btn btn-danger text-white" onClick={() => this.showmodalconfirmdeleteuser(data)}>
+            <button type="button" className="btn btn-danger text-white" onClick={() => this.showModalConfirmDeleteUser(data)}>
               <i className="fa fa-trash"></i>
             </button>
           </div>
@@ -136,62 +136,14 @@ class UserList extends Component {
                       <i className="fa fa-list-ul"></i>
                       <span className="pl-2 pr-2">User List</span>
                     </div>
-                    {/* <div className="float-left">
+                    <div className="float-left">
                       <div className="input-group">
                         <input type="text" className="form-control" placeholder="Search" name='username' value={this.state.search.username} onChange={this.onchangesearchuser} onKeyPress={this._handleKeyPress} />
                         <button className="btn btn-primary" type="button" onClick={() => this.onclicksearchuser()}><i className="fa fa-search"></i></button>
                       </div>
-                    </div> */}
-                  </div>
-                  {/* <div className="d-flex align-items-end ">
-                    <Link to='User'>
-                      <button type="button" className="btn btn-primary">
-                        <i className="fa fa-plus-circle"></i>
-                        <span className="pl-2">Add</span>
-                      </button>
-                    </Link>
-                  </div> */}
-                </div>
-
-
-                <div className="card-body">
-                  <div className="row">
-                    <div className="col-xs-6 col-sm-6 col-md-6">
-                      <div className="form-group row">
-                        <label htmlFor="example-text-input" className="col-3 col-form-label">Username</label>
-                        <div className="col-7">
-                          <input className="form-control" type="text" name="username" value={this.state.search.username} onChange={this.onchangesearchuser} onKeyPress={this._handleKeyPress} />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-xs-6 col-sm-6 col-md-6">
-                      <div className="form-group row">
-                        <label htmlFor="example-text-input" className="col-3 col-form-label">Mobile</label>
-                        <div className="col-7">
-                          <input className="form-control" type="text" name="mobile" value={this.state.search.mobile} onChange={this.onchangesearchuser} onKeyPress={this._handleKeyPress} />
-                        </div>
-                      </div>
                     </div>
                   </div>
-
-                  <div className="row">
-                    <div className="col-xs-6 col-sm-6 col-md-6">
-                      <div className="form-group row">
-                        <label htmlFor="example-text-input" className="col-3 col-form-label">Email</label>
-                        <div className="col-7">
-                          <input className="form-control" type="text" name="email" value={this.state.search.email} onChange={this.onchangesearchuser} onKeyPress={this._handleKeyPress} />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <button type="button" className="btn btn-success btn-lg pull-right" onClick={() => this.onclicksearchuser()}>Search</button>
-                </div>
-
-
-
-                <div className="card-body">
-
-                  <div style={{marginBottom:"1em"}}>
+                  <div className="d-flex align-items-end ">
                     <Link to='User'>
                       <button type="button" className="btn btn-primary">
                         <i className="fa fa-plus-circle"></i>
@@ -199,7 +151,8 @@ class UserList extends Component {
                       </button>
                     </Link>
                   </div>
-
+                </div>
+                <div className="card-body">
                   <div className="table-responsive">
                     <table className="table table-striped">
                       <thead>
@@ -265,10 +218,10 @@ class UserList extends Component {
 
 function bindActions(dispatch) {
   return {
-    getlistuser: () => dispatch(getlistuser()),
+    getListUser: () => dispatch(getListUser()),
     deleteUser: (id, success) => dispatch(deleteUser(id, success)),
     searchuser: (firstname) => dispatch(searchuser(firstname)),
-    showmodalconfirm: (message, confirm, title, color) => dispatch(showmodalconfirm(message, confirm, title, color))
+    showModalConfirm: (message, confirm, title, color) => dispatch(showModalConfirm(message, confirm, title, color))
   };
 }
 

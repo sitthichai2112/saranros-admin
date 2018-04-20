@@ -1,16 +1,16 @@
-export const SHOWMODALCONFIRM = 'showmodalconfirm'
-export const DISMISSSHOWMODALCONFIRM = 'dismissshowmodalconfirm'
+export const SHOW_MODAL_CONFIRM = 'SHOW_MODAL_CONFIRM'
+export const DISMISS_SHOW_MODAL_CONFIRM = 'DISMISS_SHOW_MODALCONFIRM'
 
 
-export const showmodalconfirm = (message = '',confirm, title = '',color='primary') => dispatch => {
+export const showModalConfirm = (message = '',confirm, title = '',color='primary') => dispatch => {
     dispatch({
-        type:SHOWMODALCONFIRM,
+        type:SHOW_MODAL_CONFIRM,
         confirm,message,title,color
     })
 }
 
-export const dismissshowmodalconfirm = () => dispatch => {
+export const dismissShowModalConfirm = () => dispatch => {
     dispatch({
-        type:DISMISSSHOWMODALCONFIRM
+        type:DISMISS_SHOW_MODAL_CONFIRM
     })
 }

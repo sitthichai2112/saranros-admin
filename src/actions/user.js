@@ -1,12 +1,12 @@
 import axios from 'axios'
 import { baseUrl, token } from '../config/api'
-export const GETLISTUSER = 'getlistuser'
+export const GET_LIST_USER = 'GET_LIST_USER'
 export const GETDETAILUSERUPDATE = 'getdetailupdate'
 export const UPDATEUSER = 'updateuser'
 import { push } from 'react-router-redux'
-import { opennotification } from '../actions/notification'
+import { openNotification } from '../actions/notification'
 
-export const getlistuser = () => dispatch => {
+export const getListUser = () => dispatch => {
 
     const tokengetuser = localStorage.getItem('token')
 
@@ -15,7 +15,7 @@ export const getlistuser = () => dispatch => {
         .then(function (response) {
             if (response && response.status === 200 && response.data) {
                 dispatch({
-                    type: GETLISTUSER,
+                    type: GET_LIST_USER,
                     listuser: response.data
                 })
             }
@@ -57,16 +57,16 @@ export const addUser = (datauser) => dispatch => {
                     .then(function (response) {
                         if (response && response.status === 200 && response.data) {
                             dispatch(push('/UserList'))
-                            dispatch(opennotification(`Create User Success.`, `success`))
+                            dispatch(openNotification(`Create User Success.`, `success`))
                         }
                     })
                     .catch(function (error) {
-                        dispatch(opennotification(`Error Create User Success.`, `error`))
+                        dispatch(openNotification(`Error Create User Success.`, `error`))
                     });
             }
         })
         .catch(function (error) {
-            dispatch(opennotification(`Error Create Profile User Success.`, `error`))
+            dispatch(openNotification(`Error Create Profile User Success.`, `error`))
         });
 
 
@@ -80,11 +80,11 @@ export const deleteUser = (data, success) => dispatch => {
         .then(function (response) {
             if (response && response.status === 200) {
                 success && success()
-                dispatch(opennotification(`Delete User ${data.username} Success.`, `success`))
+                dispatch(openNotification(`Delete User ${data.username} Success.`, `success`))
             }
         })
         .catch(function (error) {
-            dispatch(opennotification(`Error Delete User ${data.username}.`, `error`))
+            dispatch(openNotification(`Error Delete User ${data.username}.`, `error`))
         });
 }
 
@@ -112,11 +112,11 @@ export const updateuser = (datauser) => dispatch => {
         .then(function (response) {
             if (response && response.status === 200 && response.data) {
                 dispatch(push('/UserList'))
-                dispatch(opennotification(`Update User Success.`, `success`))
+                dispatch(openNotification(`Update User Success.`, `success`))
             }
         })
         .catch(function (error) {
-            dispatch(opennotification(`Error Update User.`, `error`))
+            dispatch(openNotification(`Error Update User.`, `error`))
         });
 
 }

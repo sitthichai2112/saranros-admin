@@ -1,4 +1,4 @@
-import { OPENNOTIFICATION } from "../actions/notification";
+import { OPEN_NOTIFICATION } from "../actions/notification";
 
 const initialState = {
     message: '',
@@ -7,7 +7,7 @@ const initialState = {
 
 export default function (state = initialState, action) {
     switch (action.type) {
-        case OPENNOTIFICATION:
+        case OPEN_NOTIFICATION:
             const { message, status } = action
             return {
                 ...state,

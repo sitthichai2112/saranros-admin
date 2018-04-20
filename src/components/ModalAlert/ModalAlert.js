@@ -1,15 +1,15 @@
 
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import { dismissShowModalConfirm } from '../../actions/modalconfirm'
+import { dismissShowModalAlert } from '../../actions/modalalert'
 import { connect } from 'react-redux'
-class ModalConfirm extends React.Component {
+class ModalAlert extends React.Component {
     constructor(props) {
         super(props);
     }
 
     toggle = () => {
-        this.props.dismissShowModalConfirm()
+        this.props.dismissShowModalAlert()
     }
 
     render() {
@@ -25,7 +25,7 @@ class ModalConfirm extends React.Component {
                     <ModalFooter>
                         <Button color={`${color}`} onClick={() => {
                             confirm && confirm()
-                            this.props.dismissShowModalConfirm()
+                            this.props.dismissShowModalAlert()
                         }}>{title}</Button>{' '}
                         <Button color="secondary" onClick={this.toggle}>Cancel</Button>
                     </ModalFooter>
@@ -37,17 +37,15 @@ class ModalConfirm extends React.Component {
 
 function bindActions(dispatch) {
     return {
-        dismissShowModalConfirm: () => dispatch(dismissShowModalConfirm())
+        dismissShowModalAlert: () => dispatch(dismissShowModalAlert())
     };
 }
 
 const mapStateToProps = state => ({
-    message: state.modalconfirm.message,
-    confirm: state.modalconfirm.confirm,
-    show: state.modalconfirm.show,
-    title: state.modalconfirm.title,
-    color: state.modalconfirm.color
-
-
+    message: state.modalalert.message,
+    confirm: state.modalalert.confirm,
+    show: state.modalalert.show,
+    title: state.modalalert.title,
+    color: state.modalalert.color
 });
-export default connect(mapStateToProps, bindActions)(ModalConfirm)
+export default connect(mapStateToProps, bindActions)(ModalAlert)
